@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Code">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="Label" use="optional"/>
+          <xs:attribute type="xs:string" name="Name" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dimension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Code" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="Label" use="optional"/>
+      <xs:attribute type="xs:string" name="Name" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dim">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="Category" use="optional"/>
+          <xs:attribute type="xs:string" name="Code" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Value" type="xs:short"/>
+  <xs:element name="Observation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Dim" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="Value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryParameter">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="Name"/>
+          <xs:attribute type="xs:string" name="Value"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Dimension" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Observation" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GHO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="QueryParameter"/>
+        <xs:element ref="Metadata"/>
+        <xs:element ref="Data"/>
+      </xs:sequence>
+      <xs:attribute type="xs:dateTime" name="Created"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

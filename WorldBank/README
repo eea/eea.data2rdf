@@ -1,0 +1,23 @@
+
+See http://data.worldbank.org/developers
+
+Procedure
+=========
+
+# Start with getting the vocabularies:
+
+  cd scripts
+  sh get.vocs.sh
+  sh get.indicators.sh
+  sh create.rdf.indicators.indicator.en.sh
+  sh create.rdf.void.sh
+
+Currencies and countries
+
+Countries:
+http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_xml.htm
+
+Currencies:
+http://www.currency-iso.org/content/dam/isocy/downloads/dl_iso_table_a1.xml
+
+It looks like the country names can be matched to currencies and codes by using these two tables.

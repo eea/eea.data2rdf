@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://ontologycentral.com/2009/01/eurostat/ns#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:cc="http://creativecommons.org/ns#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+
+<rdfs:Class rdf:about="#ESMSMetadata">
+  <rdfs:label>ESMS Metadata Set</rdfs:label>
+</rdfs:Class>
+
+<rdf:Property rdf:about="#accuracy">
+ <rdfs:label>Accuracy</rdfs:label>
+ <rdfs:comment>Closeness of computations or estimates to the exact or true values that the statistics were intended to measure.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#accuracy_overall">
+ <rdfs:label>Accuracy - overall</rdfs:label>
+ <rdfs:comment>Assessment of accuracy, linked to a certain data set or domain, which is summarising the various components into one single measure.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#adjustment">
+ <rdfs:label>Adjustment</rdfs:label>
+ <rdfs:comment>The set of procedures employed to modify statistical data to enable it to conform to national or international standards or to address data quality differences when compiling specific data sets.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#adjust_coded">
+ <rdfs:label>Adjustment - coded</rdfs:label>
+ <rdfs:comment>Type of adjustment used, represented by a code.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#adjust_detail">
+ <rdfs:label>Adjustment - detail</rdfs:label>
+ <rdfs:comment>Textual description of the type of adjustment used.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#adv_notice">
+ <rdfs:label>Advance notice of changes in methodology</rdfs:label>
+ <rdfs:comment>Policy on notifying the public of changes in methodology, indicating whether the public is notified before a methodological change affects disseminated data and, if so, how long before.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#age">
+ <rdfs:label>Age</rdfs:label>
+ <rdfs:comment>The length of time that a person has lived or a thing has existed.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#base_per">
+ <rdfs:label>Base period</rdfs:label>
+ <rdfs:comment>The period of time used as the base of an index number, or to which a constant series refers.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#civil_status">
+ <rdfs:label>Civil status</rdfs:label>
+ <rdfs:comment>Legal, conjugal status of each individual in relation to the marriage laws or customs of the country.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#class_system">
+ <rdfs:label>Classification system</rdfs:label>
+ <rdfs:comment>Arrangement or division of objects into groups based on characteristics which the objects have in common.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coherence">
+ <rdfs:label>Coherence</rdfs:label>
+ <rdfs:comment>Adequacy of statistics to be combined in different ways and for various uses.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coher_internal">
+ <rdfs:label>Coherence - internal</rdfs:label>
+ <rdfs:comment>Extent to which statistics are consistent within a given data set.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coher_x_dom">
+ <rdfs:label>Coherence - cross domain</rdfs:label>
+ <rdfs:comment>Extent to which statistics are reconcilable with those obtained through other data sources or statistical domains.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coll_method">
+ <rdfs:label>Data collection</rdfs:label>
+ <rdfs:comment>Systematic process of gathering data for official statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_ag">
+ <rdfs:label>Provision Agreement Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_dfl">
+ <rdfs:label>Dataflow Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_dset">
+ <rdfs:label>Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text which can be attached to data or metadata</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_grp">
+ <rdfs:label>Group Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_obs">
+ <rdfs:label>Observation Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comment_ts">
+ <rdfs:label>Time-Series Comment</rdfs:label>
+ <rdfs:comment>Supplementary descriptive text.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comparability">
+ <rdfs:label>Comparability</rdfs:label>
+ <rdfs:comment>The extent to which differences between statistics can be attributed to differences between the true values of the statistical characteristics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#compar_geo">
+ <rdfs:label>Comparability - geographical</rdfs:label>
+ <rdfs:comment>Extent to which statistics are comparable between geographical areas.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#compar_time">
+ <rdfs:label>Comparability - over time</rdfs:label>
+ <rdfs:comment>Extent to which statistics are comparable or reconcilable over time.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#completeness">
+ <rdfs:label>Completeness</rdfs:label>
+ <rdfs:comment>The extent to which all statistics that are needed are available.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#comp_agency">
+ <rdfs:label>Data compiling agency</rdfs:label>
+ <rdfs:comment>The administrative unit compiling the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#conf">
+ <rdfs:label>Confidentiality</rdfs:label>
+ <rdfs:comment>A property of data indicating the extent to which their unauthorised disclosure could be prejudicial or harmful to the interest of the source or other relevant parties.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#conf_%2A%2A%2A">
+ <rdfs:label>Confidentiality - status</rdfs:label>
+ <rdfs:comment>Information about the confidentiality status of the object to which this attribute is attached.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#conf_data_tr">
+ <rdfs:label>Confidentiality - data treatment</rdfs:label>
+ <rdfs:comment>Rules applied for treating the data set to ensure statistical confidentiality and prevent unauthorised disclosure.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#conf_policy">
+ <rdfs:label>Confidentiality - policy</rdfs:label>
+ <rdfs:comment>Legislative measures or other formal procedures which prevent unauthorised disclosure of data that identify a person or economic entity either directly or indirectly.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact">
+ <rdfs:label>Contact</rdfs:label>
+ <rdfs:comment>Individual or organisational contact points for the data or metadata, including information on how to reach the contact points.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_email">
+ <rdfs:label>Contact email address</rdfs:label>
+ <rdfs:comment>Individual or organisational contact points for the data or metadata, including information on how to reach the contact points.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_fax">
+ <rdfs:label>Contact fax number</rdfs:label>
+ <rdfs:comment>Fax number of the contact points for the data or metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_funct">
+ <rdfs:label>Contact person function</rdfs:label>
+ <rdfs:comment>The area of technical responsibility of the contact, such as "methodology", "database management" or "dissemination".</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_mail">
+ <rdfs:label>Contact mail address</rdfs:label>
+ <rdfs:comment>The postal address of the contact points for the data or metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_name">
+ <rdfs:label>Contact name</rdfs:label>
+ <rdfs:comment>The name of the contact points for the data or metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_organisation">
+ <rdfs:label>Contact organisation</rdfs:label>
+ <rdfs:comment>The name of the organisation of the contact points for the data or metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#contact_phone">
+ <rdfs:label>Contact phone number</rdfs:label>
+ <rdfs:comment>The telephone number of the contact points for the data or metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#cost_burden">
+ <rdfs:label>Cost and Burden</rdfs:label>
+ <rdfs:comment>Cost associated with the collection and production of a statistical product and burden on respondents.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#cost_burden_eff">
+ <rdfs:label>Cost and Burden - Efficiency management</rdfs:label>
+ <rdfs:comment>Cost benefit analysis, effectiveness of execution of medium term statistical programs, and ensuring efficient use of resources.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#cost_burden_res">
+ <rdfs:label>Cost and Burden - Resources</rdfs:label>
+ <rdfs:comment>Staff, facilities, computing resources, and financing to undertake statistical production.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coverage">
+ <rdfs:label>Coverage</rdfs:label>
+ <rdfs:comment>The definition of the population that statistics aim to cover.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coverage_sector">
+ <rdfs:label>Coverage - sector</rdfs:label>
+ <rdfs:comment>Main economic or other sectors covered by the statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coverage_time">
+ <rdfs:label>Coverage - Time</rdfs:label>
+ <rdfs:comment>The length of time for which data are available.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#currency">
+ <rdfs:label>Currency</rdfs:label>
+ <rdfs:comment>Monetary denomination of the object being measured.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_comp">
+ <rdfs:label>Data compilation</rdfs:label>
+ <rdfs:comment>Operations performed on data to derive new information according to a given set of rules.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_descr">
+ <rdfs:label>Data description</rdfs:label>
+ <rdfs:comment>Main characteristics of the data set described in an easily understandable manner, referring to the data and indicators disseminated.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_pres">
+ <rdfs:label>Data presentation</rdfs:label>
+ <rdfs:comment>Description of the disseminated data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_rev">
+ <rdfs:label>Data revision</rdfs:label>
+ <rdfs:comment>Any change in a value of a statistic released to the public.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_update">
+ <rdfs:label>Data update</rdfs:label>
+ <rdfs:comment>The last date on which the data element was inserted or modified in the database.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_validation">
+ <rdfs:label>Data validation</rdfs:label>
+ <rdfs:comment>Process of monitoring the results of data compilation and ensuring the quality of the statistical results.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_val_inter">
+ <rdfs:label>Data validation - intermediate</rdfs:label>
+ <rdfs:comment>Validation that intermediate calculations leading to statistical outputs have been correctly done.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_val_output">
+ <rdfs:label>Data validation - output</rdfs:label>
+ <rdfs:comment>Assessment of discrepancies and other problems in statistical outputs.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_val_source">
+ <rdfs:label>Data validation - source</rdfs:label>
+ <rdfs:comment>Assessment of discrepancies and other problems related to source data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#decimals">
+ <rdfs:label>Decimals</rdfs:label>
+ <rdfs:comment>The number of digits of an observation to the right of a decimal point.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#diss_agency">
+ <rdfs:label>Data dissemination agency</rdfs:label>
+ <rdfs:comment>The administrative unit that disseminates the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#diss_det">
+ <rdfs:label>Data presentation - disseminated detail</rdfs:label>
+ <rdfs:comment>Disseminated subdomain, measure, and time period breakdowns of statistics in the dataset.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#diss_format">
+ <rdfs:label>Dissemination format</rdfs:label>
+ <rdfs:comment>Media by which statistical data and metadata are disseminated.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#diss_other">
+ <rdfs:label>Dissemination format - other</rdfs:label>
+ <rdfs:comment>References to the most important other data dissemination done.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#doc_method">
+ <rdfs:label>Documentation on methodology</rdfs:label>
+ <rdfs:comment>Descriptive text and references to methodological documents available.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#education_lev">
+ <rdfs:label>Education level</rdfs:label>
+ <rdfs:comment>The highest level of an educational programme the person has successfully completed.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#embargo_time">
+ <rdfs:label>Embargo time</rdfs:label>
+ <rdfs:comment>The exact time at which the data could be made available to the public.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#freq">
+ <rdfs:label>Frequency</rdfs:label>
+ <rdfs:comment>The time interval at which observations occur over a given time period.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#freq_coll">
+ <rdfs:label>Frequency of data collection</rdfs:label>
+ <rdfs:comment>Frequency with which the source data are collected.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#freq_detail">
+ <rdfs:label>Frequency detail</rdfs:label>
+ <rdfs:comment>A further specification of the frequency to include more detailed information about the type of frequency and frequencies not commonly used.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#freq_diss">
+ <rdfs:label>Frequency of dissemination</rdfs:label>
+ <rdfs:comment>The time interval at which the statistics are disseminated over a given time period.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#gross_net">
+ <rdfs:label>Grossing / Netting</rdfs:label>
+ <rdfs:comment>Form of consolidation used in presenting the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ind_type">
+ <rdfs:label>Index type</rdfs:label>
+ <rdfs:comment>The type of index number used in the statistical production process.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#inst_mandate">
+ <rdfs:label>Institutional Mandate</rdfs:label>
+ <rdfs:comment>Set of rules or other formal set of instructions assigning responsibility as well as the authority to an organisation for the collection, processing, and dissemination of statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#inst_man_la_oa">
+ <rdfs:label>Institutional Mandate - legal acts and other agreements</rdfs:label>
+ <rdfs:comment>Legal acts or other formal or informal agreements that assign responsibility as well as the authority to an agency for the collection, processing, and dissemination of statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#inst_man_shar">
+ <rdfs:label>Institutional Mandate - data sharing</rdfs:label>
+ <rdfs:comment>Arrangements or procedures for data sharing and coordination between data producing agencies.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#i_m_res_rel">
+ <rdfs:label>Institutional Mandate - respondent relations</rdfs:label>
+ <rdfs:comment>Measures to encourage statistical reporting and/or to sanction non-reporting.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#meta_certified">
+ <rdfs:label>Metadata last certified</rdfs:label>
+ <rdfs:comment>Date of the latest certification provided by the domain manager to confirm that the metadata posted are still up-to-date, even if the content has not been amended.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#meta_last_update">
+ <rdfs:label>Metadata last update</rdfs:label>
+ <rdfs:comment>Date of last update of the content of the metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#meta_posted">
+ <rdfs:label>Metadata last posted</rdfs:label>
+ <rdfs:comment>Date of the latest dissemination of the metadata.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#meta_update">
+ <rdfs:label>Metadata update</rdfs:label>
+ <rdfs:comment>The date on which the metadata element was inserted or modified in the database.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#micro_dat_acc">
+ <rdfs:label>Dissemination format - microdata access</rdfs:label>
+ <rdfs:comment>Information on whether micro-data are also disseminated.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#m_agency">
+ <rdfs:label>Maintenance Agency</rdfs:label>
+ <rdfs:comment>The agency that maintains domain-specific data structure and metadata structure definitions.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#news_rel">
+ <rdfs:label>Dissemination format - News release</rdfs:label>
+ <rdfs:comment>Regular or ad-hoc press releases linked to the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#nonsampling_err">
+ <rdfs:label>Non-sampling error</rdfs:label>
+ <rdfs:comment>Error in sample estimates which cannot be attributed to sampling fluctuations.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#obs_pre_break">
+ <rdfs:label>Observation Pre-break Value</rdfs:label>
+ <rdfs:comment>The observation, at a time series break period, that was calculated using the old methodology.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#obs_status">
+ <rdfs:label>Observation Status</rdfs:label>
+ <rdfs:comment>Information on the quality of a value or an unusual or missing value.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#obs_value">
+ <rdfs:label>Observation Value</rdfs:label>
+ <rdfs:comment>The value, at a particular period, of a particular variable.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#occupation">
+ <rdfs:label>Occupation</rdfs:label>
+ <rdfs:comment>The definition of an occupation covers various jobs or positions which are held by individual workers who perform one or another of the possible combinations of the tasks described.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#online_db">
+ <rdfs:label>Dissemination format - online database</rdfs:label>
+ <rdfs:comment>Information about on-line databases in which the disseminated data can be accessed.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#organisation_unit">
+ <rdfs:label>Contact organisation unit</rdfs:label>
+ <rdfs:comment>An addressable subdivision of an organisation</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#orig_data_id">
+ <rdfs:label>Originator Data identifier</rdfs:label>
+ <rdfs:comment>The data identifier as found in the originating database.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#prof">
+ <rdfs:label>Professionalism</rdfs:label>
+ <rdfs:comment>Standard expected from a person who is well trained in a particular job.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#prof_cond">
+ <rdfs:label>Professionalism - code of conduct</rdfs:label>
+ <rdfs:comment>Provision for assuring the qualifications of staff and allowing staff to perform their functions without intervention motivated by non-statistical objectives.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#prof_imp">
+ <rdfs:label>Professionalism - impartiality</rdfs:label>
+ <rdfs:comment>Description of the elements providing assurances that statistics are produced on an impartial basis.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#prof_meth">
+ <rdfs:label>Professionalism - methodology</rdfs:label>
+ <rdfs:comment>Describes the elements providing assurances that the choices of sources and statistical techniques as well as decisions about dissemination are informed solely by statistical considerations.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#prof_stat_com">
+ <rdfs:label>Professionalism - statistical commentary</rdfs:label>
+ <rdfs:comment>Describes the elements providing assurances that the statistical entity is entitled to comment on erroneous interpretation and misuse of statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#publications">
+ <rdfs:label>Dissemination format - Publications</rdfs:label>
+ <rdfs:comment>Regular or ad-hoc publications in which the data are made available to the public.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#punctuality">
+ <rdfs:label>Punctuality</rdfs:label>
+ <rdfs:comment>Time lag between the actual delivery of the data and the target date when it should have been delivered.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#quality_assmnt">
+ <rdfs:label>Quality management - assessment</rdfs:label>
+ <rdfs:comment>Overall assessment of data quality, based on standard quality criteria.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#quality_assure">
+ <rdfs:label>Quality assurance</rdfs:label>
+ <rdfs:comment>Guidelines focusing on quality in general and dealing with quality of statistical programmes, including measures for ensuring the efficient use of resources.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#quality_doc">
+ <rdfs:label>Quality management - documentation</rdfs:label>
+ <rdfs:comment>Documentation on procedures applied for quality management and quality assessment.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#quality_mgmnt">
+ <rdfs:label>Quality management</rdfs:label>
+ <rdfs:comment>Systems and frameworks in place within an organisation to manage the quality of statistical products and processes.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#recording">
+ <rdfs:label>Recording basis</rdfs:label>
+ <rdfs:comment>Processes and standards employed in calculating statistical aggregates.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ref_area">
+ <rdfs:label>Reference area</rdfs:label>
+ <rdfs:comment>The country or geographic area to which the measured statistical phenomenon relates.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ref_collect">
+ <rdfs:label>Reference period - Collection</rdfs:label>
+ <rdfs:comment>Dates or periods during which observations have been collected (such as middle, average or end of period) to compile the indicator for the target reference period.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ref_period">
+ <rdfs:label>Reference Period</rdfs:label>
+ <rdfs:comment>The period of time or point in time to which the measured observation is intended to refer.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ref_per_target">
+ <rdfs:label>Reference period - Target</rdfs:label>
+ <rdfs:comment>The period that the data is designed to represent.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#ref_per_wgts">
+ <rdfs:label>Reference period - Weights</rdfs:label>
+ <rdfs:comment>Dates or periods to which the observations used to compile the weights refer.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#relevance">
+ <rdfs:label>Relevance</rdfs:label>
+ <rdfs:comment>The degree to which statistical information meets the real or perceived needs of clients.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_cal_access">
+ <rdfs:label>Release calendar access</rdfs:label>
+ <rdfs:comment>Access to the release calendar information.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_cal_policy">
+ <rdfs:label>Release calendar</rdfs:label>
+ <rdfs:comment>The schedule of statistical release dates.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_comment">
+ <rdfs:label>Release policy - policy commentary</rdfs:label>
+ <rdfs:comment>Whether or not ministerial commentary is provided on the occasion of statistical release.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_policy">
+ <rdfs:label>Release policy</rdfs:label>
+ <rdfs:comment>Rules for disseminating statistical data to interested parties.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_pol_leg_acts">
+ <rdfs:label>Release policy - legal acts and other agreements</rdfs:label>
+ <rdfs:comment>Legal acts and other agreements pertaining to data access.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_pol_tra">
+ <rdfs:label>Release policy - transparency</rdfs:label>
+ <rdfs:comment>Dissemination of the release policy to the public.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rel_pol_us_ac">
+ <rdfs:label>Release policy - user access</rdfs:label>
+ <rdfs:comment>The policy for release of the data to users, the scope of dissemination (eg, to the public), how users are informed that the data are being released, and whether the policy provides for the dissemination of statistical data to all users at the same time. It also describes the policy for briefing the press in advance of the release of the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rep_agency">
+ <rdfs:label>Reporting agency</rdfs:label>
+ <rdfs:comment>The administrative unit that supplies the data for a given  instance of the statistics.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rev_policy">
+ <rdfs:label>Data revision - policy</rdfs:label>
+ <rdfs:comment>Policy aimed at ensuring the transparency of disseminated data, whereby preliminary data are compiled that are later revised.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rev_practice">
+ <rdfs:label>Data revision - practice</rdfs:label>
+ <rdfs:comment>Information on the data revision practice.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#rev_study">
+ <rdfs:label>Data revision - studies</rdfs:label>
+ <rdfs:comment>Information about data revision studies and analyses.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#sampling">
+ <rdfs:label>Sampling</rdfs:label>
+ <rdfs:comment>The process of selecting a number of cases from all the cases in a particular group or universe.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#sampling_err">
+ <rdfs:label>Sampling error</rdfs:label>
+ <rdfs:comment>Error in sample estimates which cannot be attributed to sampling fluctuations.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#sex">
+ <rdfs:label>Sex</rdfs:label>
+ <rdfs:comment>This concept is applied if data needs to be categorised by sex, where sex is "the state of being male or female".</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#source_type">
+ <rdfs:label>Source data</rdfs:label>
+ <rdfs:comment>Characteristics and components of the raw statistical data used for compiling statistical aggregates.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#stat_conc_def">
+ <rdfs:label>Statistical concepts and definitions</rdfs:label>
+ <rdfs:comment>Statistical characteristics of statistical observations.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#stat_pop">
+ <rdfs:label>Statistical population</rdfs:label>
+ <rdfs:comment>The total membership or population or "universe" of a defined class of people, objects or events.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#stat_unit">
+ <rdfs:label>Statistical unit</rdfs:label>
+ <rdfs:comment>Entity for which information is sought and for which statistics are ultimately compiled.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#suppl_data">
+ <rdfs:label>Supplementary data</rdfs:label>
+ <rdfs:comment>Data not routinely disseminated that are made available to users upon request.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#timeliness">
+ <rdfs:label>Timeliness</rdfs:label>
+ <rdfs:comment>Length of time between data availability and the event or phenomenon they describe</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#time_format">
+ <rdfs:label>Time format</rdfs:label>
+ <rdfs:comment>Technical format in which time is represented for the measured phenomenon.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#time_output">
+ <rdfs:label>Timeliness - Output</rdfs:label>
+ <rdfs:comment>The lapse of time between the end of a reference period (or a reference date) and dissemination of the data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#time_period">
+ <rdfs:label>Time period</rdfs:label>
+ <rdfs:comment>The period of time or point in time to which the measured observation refers.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#time_source">
+ <rdfs:label>Timeliness - Source data</rdfs:label>
+ <rdfs:comment>The time between the end of a reference period (or a reference date) and actual receipt of the data by the compiling agency.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#title_%2A%2A%2A">
+ <rdfs:label>Title</rdfs:label>
+ <rdfs:comment>Textual label used as identification of a statistical object.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#unit_measure">
+ <rdfs:label>Unit of measure</rdfs:label>
+ <rdfs:comment>The unit in which the data values are measured.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#unit_meas_detail">
+ <rdfs:label>Unit of measure detail</rdfs:label>
+ <rdfs:comment>Additional textual information on the unit of measure.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#unit_mult">
+ <rdfs:label>Unit Multiplier</rdfs:label>
+ <rdfs:comment>Exponent in base 10 specified so that multiplying the observation numeric values by 10^UNIT_MULT gives a value expressed in the UNIT.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#user_needs">
+ <rdfs:label>Relevance - User Needs</rdfs:label>
+ <rdfs:comment>Description of users and their respective needs with respect to the statistical data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#user_sat">
+ <rdfs:label>Relevance - User Satisfaction</rdfs:label>
+ <rdfs:comment>Measures to determine user satisfaction.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#valuation">
+ <rdfs:label>Valuation</rdfs:label>
+ <rdfs:comment>The definition of the price per unit, for goods and services flows and asset stocks.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#vis_area_xxx">
+ <rdfs:label>Counterpart reference area</rdfs:label>
+ <rdfs:comment>The secondary area (as opposed to "reference area") to which the measured data is in relation.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#accessibility_clarity">
+ <rdfs:label>Accessibility and clarity</rdfs:label>
+ <rdfs:comment>The conditions and modalities by which users can obtain, use and interpret data.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#access_doc">
+ <rdfs:label>Accessibility of documentation</rdfs:label>
+ <rdfs:comment>Accessibility of documentation</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#accuracy_reliability">
+ <rdfs:label>Accuracy and reliability</rdfs:label>
+ <rdfs:comment>Accuracy: closeness of computations or estimates to the exact or true values that the statistics were intended to measure Reliability: closeness of the initial estimated value to the subsequent value.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#asymmetry_coeff">
+ <rdfs:label>Asymmetry for mirror flow statistics - coefficient</rdfs:label>
+ <rdfs:comment>The difference or the absolute difference of inbound and outbound flows between a pair of countries divided by the average of these two values.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coher_freqstat">
+ <rdfs:label>Coherence - sub annual and annual statistics</rdfs:label>
+ <rdfs:comment>The extent to which statistics of different frequencies are reconcilable</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coher_nataccounts">
+ <rdfs:label>Coherence - National Accounts</rdfs:label>
+ <rdfs:comment>The extent to which statistics are reconcilable with National Accounts.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#common_unit_share">
+ <rdfs:label>Common units - proportion</rdfs:label>
+ <rdfs:comment>The proportion of common units covered by both the survey and the administrative sources in relation to the total number of units in the survey.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#compar_domain">
+ <rdfs:label>Comparability - domain</rdfs:label>
+ <rdfs:comment>The extent to which statistics are comparable between statistical domains.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#compar_length">
+ <rdfs:label>Length of comparable time series</rdfs:label>
+ <rdfs:comment>The number of reference periods in time series from last break.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#completeness_rate">
+ <rdfs:label>Data completeness - rate</rdfs:label>
+ <rdfs:comment>The ratio of the number of data cells provided to the number of data cells required.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#coveragre_err">
+ <rdfs:label>Coverage error</rdfs:label>
+ <rdfs:comment>Divergence between the frame population and the target population.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#datatable_consult">
+ <rdfs:label>Data tables - consultations</rdfs:label>
+ <rdfs:comment>Number of consultations of data tables within a statistical domain for a given time period displayed in a graph.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#data_rev_avgsize">
+ <rdfs:label>Data revision - average size</rdfs:label>
+ <rdfs:comment>The average over a time period of the revisions of a key item. The 'revision' is defined as the difference between a later and an earlier estimate of the key item.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#imputation_rate">
+ <rdfs:label>Imputation - rate</rdfs:label>
+ <rdfs:comment>The ratio of the number of replaced values to the total number of values for a given variable.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#introduction">
+ <rdfs:label>Introduction</rdfs:label>
+ <rdfs:comment>A general description of the statistical process and its outputs, and their evolution over time.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#item_nonresponse_rate">
+ <rdfs:label>Item non-response - rate</rdfs:label>
+ <rdfs:comment>The ratio of the in-scope (eligible) units which have not responded to a particular item and the in-scope units that are required to respond to that particular item</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#measurement_err">
+ <rdfs:label>Measurement error</rdfs:label>
+ <rdfs:comment>Error in reading, calculating or recording numerical value.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#metadata_complete">
+ <rdfs:label>Metadata completeness - rate</rdfs:label>
+ <rdfs:comment>The ratio of the number of metadata elements provided to the total number of metadata elements applicable.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#metadata_consult">
+ <rdfs:label>Metadata - consultations</rdfs:label>
+ <rdfs:comment>Number of consultations within a statistical domain for a given time period.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#model_assump_err">
+ <rdfs:label>Model assumption error</rdfs:label>
+ <rdfs:comment>Error due to domain specific models needed to define the target of estimation.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#nonresponse_err">
+ <rdfs:label>Non response error</rdfs:label>
+ <rdfs:comment>The difference between the statistics computed from the collected data and those that would be computed if there were no missing values.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#overcoverage_rate">
+ <rdfs:label>Over-coverage - rate</rdfs:label>
+ <rdfs:comment>The proportion of units accessible via the frame that do not belong to the target population.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#processing_err">
+ <rdfs:label>Processing error</rdfs:label>
+ <rdfs:comment>The error in final data collection process results arising from the faulty implementation of correctly planned information methods.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#punctuality_release">
+ <rdfs:label>Punctuality - delivery and publication</rdfs:label>
+ <rdfs:comment>The number of days between the delivery/release date of data and the target date on which they were scheduled for delivery/release.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#sampling_err_ind">
+ <rdfs:label>Sampling error - indicators</rdfs:label>
+ <rdfs:comment>Precision measures for estimating the random variation of an estimator due to sampling.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#seasonal_adj">
+ <rdfs:label>Seasonal adjustment</rdfs:label>
+ <rdfs:comment>The statistical technique used to remove the effects of seasonal calendar influences operating on a series.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#stat_pres">
+ <rdfs:label>Statistical presentation</rdfs:label>
+ <rdfs:comment>Statistical presentation</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#stat_process">
+ <rdfs:label>Statistical processing</rdfs:label>
+ <rdfs:comment>Statistical processing</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#timelag_final">
+ <rdfs:label>Time lag - final result</rdfs:label>
+ <rdfs:comment>The number of days (or weeks or months) from the last day of the reference period to the day of publication of complete and final results.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#timelag_first">
+ <rdfs:label>Time lag - first result</rdfs:label>
+ <rdfs:comment>The number of days (or weeks or months) from the last day of the reference period to the day of publication of first results.</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#timeliness_punct">
+ <rdfs:label>Timeliness and punctuality</rdfs:label>
+ <rdfs:comment>Timeliness and punctuality</rdfs:comment>
+</rdf:Property>
+
+<rdf:Property rdf:about="#unit_nonresponse_rate">
+ <rdfs:label>Unit non-response - rate</rdfs:label>
+ <rdfs:comment>The ratio of the number of units with no information or not usable information to the total number of in-scope (eligible) units.</rdfs:comment>
+</rdf:Property>
+
+</rdf:RDF>
+

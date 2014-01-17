@@ -1,0 +1,31 @@
+
+Eurostat RDF files in a box
+===========================
+
+To run:
+
+1.  Look in eurostat.cfg and create the directory that is listed in the
+    [sources] section. It is probably "sdmxfiles".
+
+2.  python downloadsdmx.py will download all the datasets you don't have or
+    are newer than your local copy. It will first download the table of contents
+    in XML. (Can be turned off in eurostat.cfg)
+
+3.  Run dic2rdf.py to create the dictionaries. It will download the all_dic.zip.
+    (Can be turned off in eurostat.cfg)
+
+4.  Run property2rdf to create the property vocabulary
+
+5.  Run sdmx2rdf.py -- If given no arguments it will build RDF for
+    all datasets listed in dic/en/table_dic.dic if the RDF is older than
+    the SDMX.
+
+6.  Run voidwriter.py to create the void.rdf file. You might have to install
+    libxslt-python. The script uses the table of contents and all_dic.zip that
+    were downloaded in step 2 and 3.
+
+Additionally:
+
+7. There are metadata files in Eurostat. These can be downloaded with downloadesms.py
+
+8. Then you can create RDF of them with esms2rdf.py

@@ -1,0 +1,8 @@
+
+WEBSITE="../website/"
+VOCDIR="../data/indicators/en/"
+INDICDIR="../data/indicators/en/indicator/"
+XSLDIR="xsl/"
+
+RDFDATA="${WEBSITE}data/"
+RDFCLAS="${WEBSITE}classifications/"

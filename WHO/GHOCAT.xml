@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dimensions>
+  <dimension label="GHOCAT" name="GHO Measure Categories">
+    <code label="ACCREPRHLTH" name="Access to reproductive health">
+    </code>
+    <code label="ATLAS_SU_0000000100" name="ATLAS-SU: Resources for the Treatment and Prevention of Substance Use Disorders">
+    </code>
+    <code label="ATLAS_SU_0000000101" name="TREATMENT">
+    </code>
+    <code label="ATLAS_SU_0000000102" name="ADMINISTRATION">
+    </code>
+    <code label="CHLDMORT" name="Child mortality">
+    </code>
+    <code label="CHOLERA" name="Cholera">
+    </code>
+    <code label="DEVICES" name="Essential medical devices">
+    </code>
+    <code label="ENVSUS" name="Environment sustainability">
+    </code>
+    <code label="EQ_DISAGG" name="Disaggregation by equity stratifiers">
+    </code>
+    <code label="EQ_GENDER" name="Women and health">
+    </code>
+    <code label="EQ_SOCIAL" name="Social determinants of health">
+    </code>
+    <code label="EQ_URBRUR" name="Urban health">
+    </code>
+    <code label="GBD" name="Global burden of disease">
+    </code>
+    <code label="GLBLPRNTDEV" name="Global partnership for development">
+    </code>
+    <code label="HIVDATA" name="HIV/AIDS data on size of the epidemic">
+    </code>
+    <code label="HIVMALOTHDIS" name="HIV/AIDS, malaria and other diseases">
+    </code>
+    <code label="HIVRESPONSE" name="Data on the HIV/AIDS response">
+    </code>
+    <code label="HRH" name="Human resources for health">
+    </code>
+    <code label="HRH_AGG" name="HRH aggregated">
+    </code>
+    <code label="HRH_DIS" name="HRH disaggregated">
+    </code>
+    <code label="INFECT" name="Infectious Diseases">
+    </code>
+    <code label="INFECTTBL" name="Infectious diseases table">
+    </code>
+    <code label="LIFETABLES" name="Life tables">
+    </code>
+    <code label="MALARIA" name="Malaria">
+    </code>
+    <code label="MALARIA_10001" name="Malaria - outpatient">
+    </code>
+    <code label="MALARIA_10002" name="Malaria - inpatient">
+    </code>
+    <code label="MALARIA_10003" name="Malaria - laboratory">
+    </code>
+    <code label="MALARIA_10004" name="Malaria - IPT coverage">
+    </code>
+    <code label="MALARIA_10005" name="Malaria - ITN">
+    </code>
+    <code label="MALARIA_10006" name="Malaria - IRS">
+    </code>
+    <code label="MALARIA_10007" name="Malaria - treatment">
+    </code>
+    <code label="MALARIA_10008" name="Malaria - HR">
+    </code>
+    <code label="MALARIA_10009" name="Malaria - budget contributions">
+    </code>
+    <code label="MALARIA_10010" name="Malaria - endemnicity">
+    </code>
+    <code label="MALARIA_10020" name="Malaria - survey">
+    </code>
+    <code label="MALARIA_10030" name="Malaria - population">
+    </code>
+    <code label="MATHEALTH" name="Maternal health">
+    </code>
+    <code label="MDG" name="Millennium Development Goals">
+    </code>
+    <code label="MENINGITIS" name="Meningitis">
+    </code>
+    <code label="MENTAL_HEALTH" name="Mental Health">
+    </code>
+    <code label="MH_1" name="Policy and financing">
+    </code>
+    <code label="MH_2" name="Human resources">
+    </code>
+    <code label="MH_3" name="Mental health care delivery">
+    </code>
+    <code label="MORT" name="Mortality">
+    </code>
+    <code label="MORTGBD" name="Mortality and burden of disease">
+    </code>
+    <code label="MSB" name="Management of Substance Abuse">
+    </code>
+    <code label="MSB_0000000047" name="Epidemiology and Surveillance">
+    </code>
+    <code label="MSB_0000000048" name="Public Health Policy for Substance Use Disorders">
+    </code>
+    <code label="MSB_0000000049" name="Surveillance and Monitoring">
+    </code>
+    <code label="MSB_0000000050" name="Policy and Legislation">
+    </code>
+    <code label="NCD" name="Noncommunicable disease surveillance">
+    </code>
+    <code label="NCD_BMI" name="Body Mass Index (BMI)">
+    </code>
+    <code label="NCD_BP" name="Blood pressure">
+    </code>
+    <code label="NCD_CCS" name="CCS">
+    </code>
+    <code label="NCD_CHOL" name="Cholesterol">
+    </code>
+    <code label="NCD_MORT" name="Mortality">
+    </code>
+    <code label="NCD_PA" name="Physical inactivity">
+    </code>
+    <code label="NTD" name="Neglected Tropical Diseases">
+    </code>
+    <code label="NTD_1" name="Buruli Ulcer">
+    </code>
+    <code label="NTD_2" name="Dracunculiasis">
+    </code>
+    <code label="NTD_3" name="Human African Trypanosomiasis">
+    </code>
+    <code label="NTD_4" name="Leprosy">
+    </code>
+    <code label="NTD_5" name="Lymphatic Filariasis">
+    </code>
+    <code label="NTD_6" name="Trachoma">
+    </code>
+    <code label="NUT" name="Nutrition">
+    </code>
+    <code label="NUT_BMI" name="Body Mass Index">
+    </code>
+    <code label="NUT_CHILD_MALNUTRITION" name="Child Grown and Malnutrition">
+    </code>
+    <code label="ODA" name="Official Development Assistance">
+    </code>
+    <code label="PVTYHUNG" name="Poverty and hunger">
+    </code>
+    <code label="RS550" name="Phone access level">
+    </code>
+    <code label="RS553" name="Pre-hospital care">
+    </code>
+    <code label="RS559" name="Seat-belt wearing rate">
+    </code>
+    <code label="RS562" name="Applicability by occupant type">
+    </code>
+    <code label="RS565" name="BAC limit">
+    </code>
+    <code label="RS568" name="Drink-driving definition">
+    </code>
+    <code label="RS571" name="Maximum speed limits">
+    </code>
+    <code label="RS574" name="Number of registered vehicles">
+    </code>
+    <code label="RS575" name="Income level">
+    </code>
+    <code label="RS576" name="Gross national income">
+    </code>
+    <code label="RS577" name="Population">
+    </code>
+    <code label="RS580" name="Road Safety">
+    </code>
+    <code label="RS581" name="Demographic and socio-economic statistics">
+    </code>
+    <code label="RS582" name="Mortality">
+    </code>
+    <code label="RS583" name="Road traffic deaths">
+    </code>
+    <code label="RS584" name="Distribution">
+    </code>
+    <code label="RS585" name="Registered vehicles">
+    </code>
+    <code label="RS586" name="Institutional Framework">
+    </code>
+    <code label="RS587" name="Coordinating agency">
+    </code>
+    <code label="RS588" name="Strategy">
+    </code>
+    <code label="RS589" name="National Legislation">
+    </code>
+    <code label="RS590" name="Speed">
+    </code>
+    <code label="RS591" name="Drink-driving">
+    </code>
+    <code label="RS592" name="Motorcycle helmet">
+    </code>
+    <code label="RS593" name="Seat-belt">
+    </code>
+    <code label="RS594" name="Child restraints">
+    </code>
+    <code label="RS595" name="Policy">
+    </code>
+    <code label="RS596" name="Alternative transport">
+    </code>
+    <code label="RS597" name="Safety Audits">
+    </code>
+    <code label="RS598" name="Driving test">
+    </code>
+    <code label="RS599" name="Vehicle insurance">
+    </code>
+    <code label="RS600" name="Emergency care">
+    </code>
+    <code label="RSUD" name="Resources for Substance Use Disorders">
+    </code>
+    <code label="RSUD_10" name="Dissemination of Information">
+    </code>
+    <code label="RSUD_11" name="Policy">
+    </code>
+    <code label="RSUD_12" name="Substance Abuse Policy">
+    </code>
+    <code label="RSUD_13" name="Treatment System And Services">
+    </code>
+    <code label="RSUD_14" name="Policy Documents and Guidelines on Treatment">
+    </code>
+    <code label="RSUD_15" name="Legislative Provisions">
+    </code>
+    <code label="RSUD_16" name="Drug Courts and Programmes in the Justice System">
+    </code>
+    <code label="RSUD_17" name="Confidentiality of Health Records">
+    </code>
+    <code label="RSUD_18" name="Governance and Budget">
+    </code>
+    <code label="RSUD_19" name="Financing and Benefits">
+    </code>
+    <code label="RSUD_2" name="Prevalence and Burden of Disease">
+    </code>
+    <code label="RSUD_20" name="Treatment Sectors">
+    </code>
+    <code label="RSUD_21" name="Treatment System and Setting">
+    </code>
+    <code label="RSUD_22" name="Specialized Treatment Services">
+    </code>
+    <code label="RSUD_23" name="Open Access Services">
+    </code>
+    <code label="RSUD_24" name="Treatment Slots">
+    </code>
+    <code label="RSUD_25" name="Beds for Substance Use Disorders">
+    </code>
+    <code label="RSUD_26" name="Length of Stay for Inpatient Treatment">
+    </code>
+    <code label="RSUD_27" name="Pharmacological Treatment">
+    </code>
+    <code label="RSUD_28" name="Opioid Agonist Pharmacotherapy">
+    </code>
+    <code label="RSUD_29" name="Methadone">
+    </code>
+    <code label="RSUD_3" name="Prevalance">
+    </code>
+    <code label="RSUD_30" name="Buprenorphine">
+    </code>
+    <code label="RSUD_31" name="Buprenorphine/Naloxone">
+    </code>
+    <code label="RSUD_32" name="Provision Of Methadone">
+    </code>
+    <code label="RSUD_33" name="Provision Of Buprenorphine">
+    </code>
+    <code label="RSUD_34" name="Provision Of Buprenorphine/Naloxone">
+    </code>
+    <code label="RSUD_35" name="Supervision And Prescription Requirements for Opioid Agonists">
+    </code>
+    <code label="RSUD_36" name="Commencement of Treatment with Opioid Agonists">
+    </code>
+    <code label="RSUD_37" name="Management of Alcohol Withdrawal">
+    </code>
+    <code label="RSUD_38" name="Management of Benzodiazepine Withdrawal">
+    </code>
+    <code label="RSUD_39" name="Management of Cannabis Withdrawal">
+    </code>
+    <code label="RSUD_4" name="Mortality">
+    </code>
+    <code label="RSUD_40" name="Essential List of Drugs">
+    </code>
+    <code label="RSUD_41" name="Prevention Programmes For Substance Use And Related Harm">
+    </code>
+    <code label="RSUD_42" name="Governance And Budget">
+    </code>
+    <code label="RSUD_43" name="Funding">
+    </code>
+    <code label="RSUD_44" name="Prevention Activities">
+    </code>
+    <code label="RSUD_45" name="Programmes For Special Populations">
+    </code>
+    <code label="RSUD_46" name="Screening And Brief Interventions">
+    </code>
+    <code label="RSUD_47" name="Harm Reduction Programmes For IDUs">
+    </code>
+    <code label="RSUD_48" name="Human Resources And Civil Society Involvement ">
+    </code>
+    <code label="RSUD_49" name="Health Professionals And Standards Of Care">
+    </code>
+    <code label="RSUD_5" name="Burden of Disease">
+    </code>
+    <code label="RSUD_50" name="NGO's And Other Groups Providing Care">
+    </code>
+    <code label="RSUD_51" name="Groups And Agencies For Prevention">
+    </code>
+    <code label="RSUD_6" name="Psychoactive Substance at Treatment Entry">
+    </code>
+    <code label="RSUD_7" name="Monitoring and Surveillance">
+    </code>
+    <code label="RSUD_8" name="Data Collection Systems">
+    </code>
+    <code label="RSUD_9" name="National Survey: Children and Adolescents">
+    </code>
+    <code label="SA_0000001010" name="Levels of Consumption">
+    </code>
+    <code label="SA_0000001011" name="Quantity">
+    </code>
+    <code label="SA_0000001012" name="Patterns of Consumption">
+    </code>
+    <code label="SA_0000001013" name="Frequency">
+    </code>
+    <code label="SA_0000001014" name="Harms and Consequences">
+    </code>
+    <code label="SA_0000001015" name="Age-standardized disability-adjusted life years (DALYs)">
+    </code>
+    <code label="SA_0000001016" name="Age-standardized death rates">
+    </code>
+    <code label="SA_0000001017" name="Age-standardized death rates (15+ years)">
+    </code>
+    <code label="SA_0000001018" name="Morbidity">
+    </code>
+    <code label="SA_0000001019" name="Mortality">
+    </code>
+    <code label="SA_0000001020" name="Economic Aspects">
+    </code>
+    <code label="SA_0000001021" name="Revenue">
+    </code>
+    <code label="SA_0000001022" name="Costs">
+    </code>
+    <code label="SA_0000001023" name="Alcohol Control Policies">
+    </code>
+    <code label="SA_0000001024" name="Overview">
+    </code>
+    <code label="SA_0000001025" name="Advertising restrictions">
+    </code>
+    <code label="SA_0000001026" name="Age limits">
+    </code>
+    <code label="SA_0000001027" name="Drink driving">
+    </code>
+    <code label="SA_0000001028" name="Price of alcoholic beverages">
+    </code>
+    <code label="SA_0000001029" name="Selling off-premise">
+    </code>
+    <code label="SA_0000001030" name="Selling on-premise">
+    </code>
+    <code label="SA_0000001031" name="Sponsorship">
+    </code>
+    <code label="SA_0000001032" name="Sales promotion">
+    </code>
+    <code label="SA_0000001033" name="Monopoly">
+    </code>
+    <code label="SA_0000001034" name="Licensing">
+    </code>
+    <code label="SA_0000001035" name="Taxation">
+    </code>
+    <code label="SA_0000001036" name="Use in public places">
+    </code>
+    <code label="SA_0000001037" name="Warning labels">
+    </code>
+    <code label="SA_0000001049" name="Prevention activities/resources">
+    </code>
+    <code label="SA_0000001050" name="Research/treatment resources">
+    </code>
+    <code label="SA_0000001058" name="Production and availability">
+    </code>
+    <code label="SA_0000001059" name="Production">
+    </code>
+    <code label="SA_0000001060" name="Imports">
+    </code>
+    <code label="SA_0000001061" name="Sales">
+    </code>
+    <code label="SA_0000001062" name="Exports">
+    </code>
+    <code label="SA_0000001063" name="Perceived trends">
+    </code>
+    <code label="SUBSTANCE_ABUSE" name="Global Information System on Alcohol and Health">
+    </code>
+    <code label="TB" name="Tuberculosis">
+    </code>
+    <code label="TB_1" name="Cases">
+    </code>
+    <code label="TB_10" name="&#9;Case detection">
+    </code>
+    <code label="TB_1004" name="Tuberculosis - Country identification">
+    </code>
+    <code label="TB_1005" name="Tuberculosis - Finance">
+    </code>
+    <code label="TB_1006" name="Tuberculosis - Notification">
+    </code>
+    <code label="TB_1007" name="Tuberculosis - Outcomes">
+    </code>
+    <code label="TB_1008" name="Tuberculosis - Strategy">
+    </code>
+    <code label="TB_2" name="Diagnosis">
+    </code>
+    <code label="TB_3" name="Drug regimens">
+    </code>
+    <code label="TB_4" name="Treatment success">
+    </code>
+    <code label="TB_5" name="Mortality, prevalence and incidence">
+    </code>
+    <code label="TB_6" name="Case notifications">
+    </code>
+    <code label="TB_7" name="Laboratory diagnostic services">
+    </code>
+    <code label="TB_8" name="Drug susceptibility testing">
+    </code>
+    <code label="TB_9" name="National Reference Laboratory">
+    </code>
+    <code label="TB_e_mort_exc_tbhiv" name="Tuberculosis estimated mortality">
+    </code>
+    <code label="TOBACCO" name="Tobacco Control">
+    </code>
+    <code label="TOBACCO_0000000031" name="Monitor">
+    </code>
+    <code label="TOBACCO_0000000032" name="Protect from tobacco smoke">
+    </code>
+    <code label="TOBACCO_0000000033" name="Offer help to quit tobacco use">
+    </code>
+    <code label="TOBACCO_0000000034" name="Warn about the dangers of tobacco">
+    </code>
+    <code label="TOBACCO_0000000035" name="Enforce bans on tobacco advertising">
+    </code>
+    <code label="TOBACCO_0000000036" name="Raise taxes on tobacco">
+    </code>
+    <code label="TOBACCO_0000000037" name="National tobacco control programmes">
+    </code>
+    <code label="TOBACCO_0000000038" name="Status of policies">
+    </code>
+    <code label="TOBACCO_0000000039" name="Prevalence - adult age-standardized">
+    </code>
+    <code label="TOBACCO_0000000040" name="Prevalence - adult crude">
+    </code>
+    <code label="TOBACCO_0000000041" name="Prevalence - Global Youth Tobacco Survey">
+    </code>
+    <code label="TOBACCO_0000000042" name="Monitor tobacco use - adult">
+    </code>
+    <code label="TOBACCO_0000000043" name="Public places with smoke-free legislation">
+    </code>
+    <code label="TOBACCO_0000000044" name="Characteristics of smoke-free legislation">
+    </code>
+    <code label="TOBACCO_0000000045" name="Progress towards selected tobacco control policies for demand reduction">
+    </code>
+    <code label="TOBACCO_0000000051" name="Monitor tobacco use - youth">
+    </code>
+    <code label="TOBACCO_0000000052" name="Treatment of tobacco dependence">
+    </code>
+    <code label="TOBACCO_0000000053" name="Medication">
+    </code>
+    <code label="TOBACCO_0000000055" name="Health warning labels on cigarette packages">
+    </code>
+    <code label="TOBACCO_0000000056" name="Other smoked tobacco packaging">
+    </code>
+    <code label="TOBACCO_0000000057" name="Health warning labels on smokeless tobacco packaging">
+    </code>
+    <code label="TOBACCO_0000000059" name="Ban on direct advertising">
+    </code>
+    <code label="TOBACCO_0000000060" name="Ban on promotion and sponsorship">
+    </code>
+    <code label="TOBACCO_0000000061" name="Cigarette prices - most sold brand">
+    </code>
+    <code label="TOBACCO_0000000062" name="Cigarette prices - cheapest brand">
+    </code>
+    <code label="TOBACCO_0000000063" name="Bidi prices - most sold brand">
+    </code>
+    <code label="TOBACCO_0000000064" name="Cigarette taxes - most sold brand">
+    </code>
+    <code label="TOBACCO_0000000065" name="Bidi taxes - most sold brand">
+    </code>
+    <code label="TOBACCO_0000000066" name="National tobacco control policies">
+    </code>
+    <code label="TOBACCO_0000000067" name="Additional regulations on cigarette packaging">
+    </code>
+    <code label="TOBACCO_0000000068" name="Subnational smoke-free environments">
+    </code>
+    <code label="TOBACCO_0000000069" name="Additional regulations on smokeless tobacco packaging">
+    </code>
+    <code label="TOBACCO_0000000070" name="Anti-tobacco mass media campaigns">
+    </code>
+    <code label="WAS" name="Water and Sanitation">
+    </code>
+    <code label="WHS" name="World Health Statistics">
+    </code>
+    <code label="WHS1" name="Mortality and burden of disease">
+    </code>
+    <code label="WHS2" name="Cause-specific mortality and morbidity">
+    </code>
+    <code label="WHS3" name="Selected infectious diseases">
+    </code>
+    <code label="WHS4" name="Health service coverage">
+    </code>
+    <code label="WHS5" name="Risk factors">
+    </code>
+    <code label="WHS6" name="Health workforce, infrastructure, essential medicines">
+    </code>
+    <code label="WHS7" name="Health expenditure">
+    </code>
+    <code label="WHS8" name="Health inequities">
+    </code>
+    <code label="WHS9" name="Demographic and socioeconomic statistics">
+    </code>
+  </dimension>
+</dimensions>
