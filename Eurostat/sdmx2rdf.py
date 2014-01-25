@@ -110,13 +110,12 @@ class SDMXConverter(handler.ContentHandler):
     def characters(self, data):
         self.data.append(data)
 
-    def writeTimePeriod(self, timeFormat, timePeriod):
+    def getTimePeriod(self, timeFormat, timePeriod):
 	""" Creates a date from the time period in the SDMX data
             LTAA = long term anual average
         """
         if timePeriod in ("TARGET", "LTAA"):
-            self.rdfout.writeDataProperty("sdmx-dimension:timePeriod", timePeriod)
-            return
+            return (timePeriod, '')
         if timeFormat == "P1Y":
             date = timePeriod + "-01-01"
         elif timeFormat == "P6M":
@@ -137,7 +136,8 @@ class SDMXConverter(handler.ContentHandler):
             # period has staryear - endyear concatenated
             date = timePeriod[:4] + "-01-01"
         # Missing PT1M - minutely
-        self.rdfout.writeDataProperty("sdmx-dimension:timePeriod", date, datatype="http://www.w3.org/2001/XMLSchema#date")
+        return (date, "http://www.w3.org/2001/XMLSchema#date")
+        #self.rdfout.writeDataProperty("sdmx-dimension:timePeriod", date, datatype="http://www.w3.org/2001/XMLSchema#date")
 
 
     def startHeader(self, tag, attrs):
@@ -233,7 +233,7 @@ class SDMXConverter(handler.ContentHandler):
                 template = "    _:%(dataset)s %(predicate)s ?%(property)s .\n"
         for p in self.allDimensions.keys():
             if p.lower() == p:
-                sparql = sparql + template % {'dataset': self.dataset, 'property': p, 'predicate': self.sdmxDimensions.get(p, 'property:'+p)}
+                sparql = sparql + template % {'dataset': self.dataset, 'property': p, 'predicate': self.propertyElement(p)}
         sparql = sparql + "    OPTIONAL { _:%(dataset)s sdmx-measure:obsValue ?obsValue }\n" % args
         if useDics:
             sparql = sparql + "    OPTIONAL { _:%(dataset)s sdmx-attribute:obsStatus _:obsStatus . _:obsStatus skos:prefLabel ?obsStatus }\n" % args
@@ -272,8 +272,8 @@ class SDMXConverter(handler.ContentHandler):
         obsStatus = attrs.get((None,'OBS_STATUS'), None)
         self.rdfout.writeStartResource("qb:Observation", "data/%s#%s%s" % (self.dataset, self.objUri, timePeriod))
         self.rdfout.writeObjectProperty("qb:dataSet", "data/%s" % self.dataset)
-        #self.rdfout.writeObjectProperty("sdmx-dimension:freq", "http://purl.org/linked-data/sdmx/2009/code#freq-%s" % self.seriesAttrs[(None,'FREQ')])
-        self.writeTimePeriod(self.timeFormat, timePeriod)
+        timeValue, timeType = self.getTimePeriod(self.timeFormat, timePeriod)
+        self.rdfout.writeDataProperty("sdmx-dimension:timePeriod", timeValue, datatype=timeType)
         obsValue = attrs.get((None,'OBS_VALUE'))
         if obsValue:
             try:
@@ -289,15 +289,12 @@ class SDMXConverter(handler.ContentHandler):
             if loc_k.lower() == loc_k:
                 self.rdfout.writeObjectProperty("property:" + loc_k, self.vocabularyReference(loc_k , v))
             if self.sdmxDimensions.get(loc_k):
-                self.rdfout.writeObjectProperty(self.sdmxDimensions.get(loc_k), self.vocabularyReference(loc_k, v))
+                self.rdfout.writeObjectProperty(self.propertyElement(loc_k), self.vocabularyReference(loc_k, v))
         self.rdfout.writeEndResource("qb:Observation")
         self.obsnum += 1
 
     def propertyElement(self, dimension):
-        if self.sdmxDimensions.get(dimension):
-            return self.sdmxDimensions.get(dimension)
-        else:
-            return "property:" + dimension
+        return self.sdmxDimensions.get(dimension, "property:" + dimension)
 
     def vocabularyReference(self, dictionary, code):
         """ Chooses the correct vocabulary for the code of the dictionary

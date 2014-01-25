@@ -35,6 +35,13 @@ class TestSDMXConverter(unittest.TestCase):
     def tearDown(self):
         os.unlink(self.destFileName)
 
+    def readRdfDocument(self):
+        """ Return the content of the written RDF document"""
+        f = gzip.open(self.destFileName, 'rb')
+        res = f.read()
+        f.close()
+        return res
+
     def testVocabularyRef(self):
         """ Test that vocabulary references return the correct value """
         self.config.set('rdf', 'dimensiondict', 'http://dd.eionet.europa.eu/vocabulary/eurostat/%(dimension)s/%(code)s')
@@ -75,9 +82,7 @@ class TestSDMXConverter(unittest.TestCase):
                 (None,'OBS_VALUE'): '4.5998', (None,'OBS_STATUS'): 'e' })
 
         self.rdfout.writeFinish()
-        f = gzip.open(self.destFileName, 'rb')
-        res = f.read()
-        f.close()
+        res = self.readRdfDocument()
         self.assertIn("""<sdmx-dimension:timePeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-01</sdmx-dimension:timePeriod>""", res)
         self.assertIn("""<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5998</sdmx-measure:obsValue>""", res)
         self.assertIn("""<sdmx-attribute:obsStatus rdf:resource="dic/obs_status#e"/>""", res)
@@ -102,9 +107,7 @@ class TestSDMXConverter(unittest.TestCase):
                 (None,'OBS_VALUE'): '4.5998', (None,'OBS_STATUS'): 'e' })
 
         self.rdfout.writeFinish()
-        f = gzip.open(self.destFileName, 'rb')
-        res = f.read()
-        f.close()
+        res = self.readRdfDocument()
         self.assertIn("""<sdmx-dimension:timePeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-01</sdmx-dimension:timePeriod>""", res)
         self.assertIn("""<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5998</sdmx-measure:obsValue>""", res)
         self.assertIn("""<sdmx-attribute:obsStatus rdf:resource="dic/obs_status#e"/>""", res)
@@ -113,6 +116,15 @@ class TestSDMXConverter(unittest.TestCase):
         self.assertIn("""<property:geo rdf:resource="dic/geo#IL"/>""", res)
         self.assertIn("""<sdmx-dimension:refArea rdf:resource="dic/geo#IL"/>""", res)
         #print res
+
+    def testWriteTime(self):
+        converter = sdmx2rdf.SDMXConverter("test", self.config, self.rdfout, "test label")
+        timeValue, timeType = converter.getTimePeriod("","TARGET")
+        self.assertEquals("TARGET", timeValue)
+        self.assertEquals("", timeType)
+        timeValue, timeType = converter.getTimePeriod("P1Y","2013")
+        self.assertEquals("2013-01-01", timeValue)
+        self.assertEquals("http://www.w3.org/2001/XMLSchema#date", timeType)
 
 if __name__ == '__main__': 
     unittest.main() 
