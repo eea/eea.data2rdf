@@ -247,7 +247,7 @@ def createESMSRdf(config):
         dataset = f[:-9]
         try:
             zfd = zipfile.ZipFile(sources + "/" + f)
-            zdata = StringIO(zfd.read(dataset + ".sdmx.xml"))
+            zdata = StringIO(zfd.read(dataset + ".sdmx"))
             parser = make_parser()
             parser.setFeature(handler.feature_namespaces, 1)
             ch = ESMSParser(website, f[:-9], rdfout)
