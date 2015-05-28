@@ -2,10 +2,14 @@
 Eurostat RDF files in a box
 ===========================
 
+All scripts can be run with a '-v' argument for more verbosity and usually also
+take a list of datasets. No datasets mean all datasets.
+
 To run:
 
-1.  Look in eurostat.cfg and create the directory that is listed in the
-    [sources] section. It is probably "sdmxfiles".
+1.  Look in eurostat.cfg and create the directories that is listed in the
+    [sources] section. It is probably "sdmxfiles" and "esmsfiles". Also create
+    the directory listed as 'destdir'. It is probably "website".
 
 2.  python downloadsdmx.py will download all the datasets you don't have or
     are newer than your local copy. It will first download the table of contents
@@ -14,7 +18,8 @@ To run:
 3.  Run dic2rdf.py to create the dictionaries. It will download the all_dic.zip.
     (Can be turned off in eurostat.cfg)
 
-4.  Run property2rdf to create the property vocabulary
+4.  Run property2rdf to create the property vocabulary. The labels come from dimlst.dic
+    in all_dic.zip.
 
 5.  Run sdmx2rdf.py -- If given no arguments it will build RDF for
     all datasets listed in dic/en/table_dic.dic if the RDF is older than

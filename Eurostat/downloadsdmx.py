@@ -103,13 +103,13 @@ class ToCParser(handler.ContentHandler):
 
     def startElementNS(self, tag, qname, attrs):
         self.level = self.level + 1
-        if tag == (NTNS,'lastModified'): return self.startLastModified(tag, qname, attrs)
+        if tag == (NTNS,'lastUpdate'): return self.startLastModified(tag, qname, attrs)
         elif tag == (NTNS,'downloadLink'): return self.startDownloadLink(tag, qname, attrs)
         elif tag == (NTNS,'code'): return self.startCode(tag, qname, attrs)
 
     def endElementNS(self, tag, qname):
         self.level = self.level - 1
-        if tag == (NTNS,'lastModified'): return self.endLastModified(tag, qname)
+        if tag == (NTNS,'lastUpdate'): return self.endLastModified(tag, qname)
         elif tag == (NTNS,'downloadLink'): return self.endDownloadLink(tag, qname)
         elif tag == (NTNS,'code'): return self.endCode(tag, qname)
 

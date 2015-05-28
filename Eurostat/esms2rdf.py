@@ -247,15 +247,20 @@ def createESMSRdf(config):
         dataset = f[:-9]
         try:
             zfd = zipfile.ZipFile(sources + "/" + f)
-            zdata = StringIO(zfd.read(dataset + ".sdmx"))
-            parser = make_parser()
-            parser.setFeature(handler.feature_namespaces, 1)
-            ch = ESMSParser(website, f[:-9], rdfout)
-            parser.setContentHandler(ch)
-            parser.setErrorHandler(handler.ErrorHandler())
-            parser.parse(zdata)
-            zdata.close()
-            zfd.close()
+            for name in zfd.namelist():
+                if name.startswith(dataset) and name[len(dataset):len(dataset)+5] == ".sdmx":
+                    zdata = StringIO(zfd.read(name))
+                    parser = make_parser()
+                    parser.setFeature(handler.feature_namespaces, 1)
+                    ch = ESMSParser(website, f[:-9], rdfout)
+                    parser.setContentHandler(ch)
+                    parser.setErrorHandler(handler.ErrorHandler())
+                    parser.parse(zdata)
+                    zdata.close()
+                    zfd.close()
+                    break
+            else:
+                raise RuntimeError, "ESMS member not found in zip archive"
         except:
             logging.error("Failed to build %s", f)
     rdfout.writeFinish()

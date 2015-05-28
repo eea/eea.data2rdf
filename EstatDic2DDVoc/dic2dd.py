@@ -25,6 +25,10 @@ import urllib, logging
 import zipfile, time
 from cStringIO import StringIO
 
+INVALID = 113
+VALID = 145
+DEPRECATED = 161
+DEPRECATED_RETIRED = 163
 
 def q(s):
     return s.replace("'","''")
@@ -59,7 +63,7 @@ class DD(object):
         cursor.execute("""SELECT VOCABULARY_ID FROM VOCABULARY WHERE IDENTIFIER=%s AND FOLDER_ID=%s""", (code, self.eurostatId))
         if cursor.rowcount == 0:
             logging.debug("Creating vocabulary %s" % code)
-            cursor.execute("""INSERT INTO VOCABULARY (CONTINUITY_ID, IDENTIFIER, LABEL, REG_STATUS, FOLDER_ID, NOTATIONS_EQUAL_IDENTIFIERS, DATE_MODIFIED, USER_MODIFIED) VALUES (UUID(), %s, %s, 'Released', %s, 1, %s, 'system') """, (code, label, self.eurostatId, modifyDate))
+            cursor.execute("""INSERT INTO VOCABULARY (CONTINUITY_ID, IDENTIFIER, LABEL, REG_STATUS, FOLDER_ID, NOTATIONS_EQUAL_IDENTIFIERS, DATE_MODIFIED, USER_MODIFIED, BASE_URI) VALUES (UUID(), %s, %s, 'Released', %s, 1, %s, 'system', CONCAT('http://dd.eionet.europa.eu/vocabulary/eurostat/', %s, '/')) """, (code, label, self.eurostatId, modifyDate, code))
             self.commit()
         elif cursor.rowcount == 1:
             cursor.execute("""UPDATE VOCABULARY set LABEL=%s, DATE_MODIFIED=%s,USER_MODIFIED='system' WHERE IDENTIFIER=%s AND FOLDER_ID=%s""", (label, modifyDate, code, self.eurostatId))
@@ -69,6 +73,9 @@ class DD(object):
         cursor.execute("""SELECT VOCABULARY_ID FROM VOCABULARY WHERE IDENTIFIER=%s AND FOLDER_ID=%s""", (code, self.eurostatId))
         row = cursor.fetchone()
         vocId = row[0]
+        # Add source statement
+        # FIXME: Only for new vocabularies
+        #cursor.execute("""INSERT INTO ATTRIBUTE VALUES (59, %s, concat('Original source from Eurostat at http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?file=dic/en/', %s,'.dic'),'VCF')""", (vocId, code))
         return vocId
 
     def recordVocabularies(self):
@@ -90,7 +97,7 @@ class DD(object):
         self.vocnames['cities'] = 'Urban audit cities'
 
     def getExistingConcepts(self, vocabulary):
-        """ Get existing concepts as a list """
+        """ Get existing concepts as a dictionary """
         existingCodes = {}
         cursor = self.cursor()
         cursor.execute("""SELECT C.IDENTIFIER, C.VOCABULARY_CONCEPT_ID, C.LABEL FROM VOCABULARY_CONCEPT AS C JOIN VOCABULARY AS V USING(VOCABULARY_ID) WHERE V.IDENTIFIER=%s AND FOLDER_ID=%s""", (vocabulary, self.eurostatId))
@@ -104,6 +111,7 @@ class DD(object):
         """ vocabulary is the name of the vocabulary
             datastream expects a file descriptor with the content in UTF-8 encoding
         """
+        newCodes = {}
         existingCodes = self.getExistingConcepts(vocabulary)
 
         cursor = self.cursor()
@@ -114,14 +122,22 @@ class DD(object):
             code = row[0].strip()
             prefLabel = unicode(row[1].strip(), 'utf-8')
             if code == "": continue       # Found an empty code
+            newCodes[code] = 1
             conceptId, currLabel = existingCodes.get(code, (None, None))
             if conceptId:
                 if currLabel != prefLabel:
                     logging.debug("Update: %s %d %s %s" % (vocabulary, conceptId, code, prefLabel))
-                    cursor.execute(u"""UPDATE VOCABULARY_CONCEPT SET LABEL=%s WHERE VOCABULARY_CONCEPT_ID=%s""", (prefLabel, conceptId))
+                    cursor.execute(u"""UPDATE VOCABULARY_CONCEPT SET LABEL=%s, STATUS=145 WHERE VOCABULARY_CONCEPT_ID=%s""", (prefLabel, conceptId))
             else:
                 logging.debug("Insert: %s %s %s" % (vocabulary, code, prefLabel))
-                cursor.execute(u"""INSERT INTO VOCABULARY_CONCEPT SELECT NULL, VOCABULARY_ID, %s,%s,'',%s,NULL,NULL,%s FROM VOCABULARY WHERE IDENTIFIER=%s AND FOLDER_ID=%s""", (code, prefLabel, code, modifyDate, vocabulary, self.eurostatId))
+                cursor.execute(u"""INSERT INTO VOCABULARY_CONCEPT (VOCABULARY_CONCEPT_ID, VOCABULARY_ID, IDENTIFIER, LABEL, DEFINITION, NOTATION, ORIGINAL_CONCEPT_ID, STATUS, STATUS_MODIFIED, ACCEPTED_DATE, NOT_ACCEPTED_DATE) SELECT NULL, VOCABULARY_ID, %s,%s,'',%s,NULL,145, %s, %s, NULL FROM VOCABULARY WHERE IDENTIFIER=%s AND FOLDER_ID=%s""", (code, prefLabel, code, modifyDate, modifyDate, vocabulary, self.eurostatId))
+        # Retire old codes
+        for oldCode, oldVals in existingCodes.items():
+            if oldCode not in newCodes:
+                conceptId = oldVals[0]
+                oldLabel = oldVals[1]
+                logging.debug("Invalidating: %s %d %s %s" % (vocabulary, conceptId, oldCode, oldLabel))
+                cursor.execute(u"""UPDATE VOCABULARY_CONCEPT SET STATUS=113, NOT_ACCEPTED_DATE=%s, STATUS_MODIFIED=%s WHERE VOCABULARY_CONCEPT_ID=%s AND STATUS>=128""", (modifyDate, modifyDate, conceptId))
         self.commit()
 
 if __name__ == '__main__':

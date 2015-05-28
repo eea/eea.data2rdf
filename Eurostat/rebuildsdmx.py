@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012 Søren Roug, European Environment Agency
+# Copyright (C) 2014 Søren Roug, European Environment Agency
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -19,25 +19,33 @@
 # Contributor(s):
 #
 
-import logging, os, time
+import logging, os, time, sys, fnmatch
 from toclabels import datasetLabels
 import sdmx2rdf, downloadsdmx, toclabels
 import urllib
 
+# This program will rebuild all datasets that have not been built after a
+# timestamp set in the config file or today's date
 
+def listCachedDatasets(config, candidates = []):
+    todownload = []
+    try:
+        rebuildDate = config.get('rebuild','timestamp')
+        dateOfSource = time.mktime(time.strptime(rebuildDate, "%Y-%m-%d %H:%M:%S"))
+    except:
+        dateOfSource = time.time()
 
-def pingDatabases(config, dataset):
-    """ Sends a request to data stores as a signal to get them to reharvest
-        the new RDF data.
-    """
-    baseuri = config.get('rdf', 'baseuri')
-    urls = config.get('ping', 'stores', {'dataset': dataset, 'baseuri': baseuri})
-    urllist = urls.split()
-    for link in urllist:
-        f = urllib.urlopen(link)
-        f.read()
-        f.close()
+    sources = config.get('sources', 'sdmxfiles')
+    for filename in os.listdir(sources):
+        if filename[-9:] == ".sdmx.zip" and (len(candidates) == 0 or filename[:-9] in candidates):
+            todownload.append( [filename[:-9], "", sources + "/" + filename, dateOfSource] )
+    return todownload
 
+def isSkipable(code, skiplist):
+    for skip in skiplist:
+        if fnmatch.fnmatch(code, skip):
+            return True
+    return False
 
 if __name__ == '__main__':
     import ConfigParser, getopt, sys
@@ -54,27 +62,26 @@ if __name__ == '__main__':
         if o == "-v":
             logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
-    # Download the TOC
-    downloadsdmx.downloadTOC(config)
+    toDownload = listCachedDatasets(config, args)
+
     # Get the titles of the datasets
     dsLabels = toclabels.datasetLabels()
 
-    # Get a list of files to download. Datasets to skip have been excluded.
-    toDownload = downloadsdmx.listNewDatasets(config)
-
-    # For each dataset, download and then convert
+    # For each dataset, convert
     failures = 0
     for ds in toDownload:
         try:
             code, link, filename, lastModified = ds
-            logging.info("Retrieving %s last updated %s" , code, time.strftime("%Y-%m-%d", lastModified))
-            downloadsdmx.downloadSDMX(link, filename)
+            if isSkipable(code, skiplist):
+                logging.debug("Skipping %s", code)
+                continue
             label = dsLabels.get(code, code)
-            sdmx2rdf.buildIfRdfIsOlder(config, code, label)
+            sdmx2rdf.buildIfRdfIsOlder(config, code, label, lastModified)
         except KeyboardInterrupt:
             raise
         except:
+            raise
             failures += 1
-            logging.error("Failed to download: %s", filename)
+            logging.error("Failed to rebuild: %s", filename)
     if failures > 0:
         logging.warning("Failed: %s", failures)

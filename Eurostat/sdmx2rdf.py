@@ -56,8 +56,7 @@ class SDMXConverter(handler.ContentHandler):
         'FREQ': 'http://purl.org/linked-data/sdmx/2009/code#freq-',
         'decimals': 'http://purl.org/linked-data/sdmx/2009/code#decimals-',
         'X-OBS_STATUS': 'http://purl.org/linked-data/sdmx/2009/code#obsStatus-',
-        'sex': 'http://purl.org/linked-data/sdmx/2009/code#sex-',
-        'geo': 'dic/geo#'
+        'sex': 'http://purl.org/linked-data/sdmx/2009/code#sex-'
     }
 
     def __init__(self, dataset, config, rdfout, dsLabel):
@@ -180,9 +179,10 @@ class SDMXConverter(handler.ContentHandler):
         self.rdfout.writeObjectProperty("cr:hasSparqlBookmark","data/%s#sparqlSimple" % self.dataset)
         self.rdfout.writeObjectProperty("cr:hasSparqlBookmark","data/%s#sparqlJoined" % self.dataset)
         self.rdfout.writeObjectProperty("dcterms:requires", "http://purl.org/linked-data/sdmx/2009/code")
+        self.rdfout.writeObjectProperty("dcterms:requires", "http://dd.eionet.europa.eu/vocabularyfolder/eurostat/rdf")
         self.rdfout.writeObjectProperty("dcterms:requires", "dic/obs_status.rdf")
         for p in self.allDimensions.keys():
-            if p.lower() == p:
+            if p.lower() == p and p in self.legacyDicts:
                 self.rdfout.writeObjectProperty("dcterms:requires", "dic/%s.rdf" % p)
         self.rdfout.writeEndResource("rdf:Description")
 
@@ -286,10 +286,11 @@ class SDMXConverter(handler.ContentHandler):
             self.rdfout.writeObjectProperty("sdmx-attribute:obsStatus", self.vocabularyReference("obs_status", obsStatus))
         for k,v in self.seriesAttrs.items():
             loc_k = k[1]
-            if loc_k.lower() == loc_k:
-                self.rdfout.writeObjectProperty("property:" + loc_k, self.vocabularyReference(loc_k , v))
             if self.sdmxDimensions.get(loc_k):
                 self.rdfout.writeObjectProperty(self.propertyElement(loc_k), self.vocabularyReference(loc_k, v))
+            else:
+                if loc_k.lower() == loc_k: # So TIME_FORMAT is ignored
+                    self.rdfout.writeObjectProperty("property:" + loc_k, self.vocabularyReference(loc_k , v))
         self.rdfout.writeEndResource("qb:Observation")
         self.obsnum += 1
 
@@ -318,25 +319,39 @@ def rdfFileTime(config, dataset):
         mtime = 0.0
     return mtime
 
-def buildIfOlder(config, dataset, dsLabel):
+def build(config, dataset, dsLabel):
+    try:
+        createRdfFile(config, dataset, dsLabel)
+    except zipfile.BadZipfile:
+        logging.error("Bad zip file: %s", dataset)
+    except xml.sax._exceptions.SAXParseException:
+        logging.error("XML parsing error in: %s", dataset)
+
+
+def buildIfRdfIsOlder(config, dataset, dsLabel, sdmxForcedTime = None):
     """ Compare the timestamp of the source and destination and build if
         destination is older
     """
     rdftime = rdfFileTime(config, dataset)
-    repository = config.get('sources','sdmxfiles')
-    sdmxname = repository + "/" + dataset + ".sdmx.zip"
-    try:
-        sdmxtime = os.stat(sdmxname).st_mtime
-    except:
-        logging.debug("No such source: %s", dataset)
-        return
+    if sdmxForcedTime is None:
+        repository = config.get('sources','sdmxfiles')
+        sdmxname = repository + "/" + dataset + ".sdmx.zip"
+        try:
+            sdmxtime = os.stat(sdmxname).st_mtime
+        except:
+            logging.debug("No such source: %s", dataset)
+            return
+    else:
+        sdmxtime = sdmxForcedTime
     try:
         if rdftime < sdmxtime:
             createRdfFile(config, dataset, dsLabel)
         else:
             logging.debug("Destination is newer: %s", dataset)
+    except zipfile.BadZipfile:
+        logging.error("Bad zip file: %s", dataset)
     except xml.sax._exceptions.SAXParseException:
-        pass
+        logging.error("XML parsing error in: %s", dataset)
 
 
 def createRdfFile(config, dataset, dsLabel):
@@ -426,8 +441,8 @@ if __name__ == '__main__':
                     buildIt = False
                     break
             if buildIt:
-                buildIfOlder(config, a, l)
+                buildIfRdfIsOlder(config, a, l)
     else:
         for a in args:
             if a[-9:] == '.sdmx.zip': a = a[:-9]
-            buildIfOlder(config, a, dsLabels.get(a))
+            buildIfRdfIsOlder(config, a, dsLabels.get(a))
